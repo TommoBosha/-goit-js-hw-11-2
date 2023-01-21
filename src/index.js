@@ -1,6 +1,6 @@
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import SimpleLightbox from 'simplelightbox'
+import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { refs } from './js/refs.js';
@@ -32,7 +32,8 @@ const createGallery = async () => {
         Notify.success(`Hooray! We found ${totalHits} images.`);
       }
       renderGallery(data.hits);
-      SimpleLightbox = new SimpleLightbox('.gallery a').refresh();
+      const simpleLightbox = new SimpleLightbox('.gallery a');
+      simpleLightbox.refresh();
       watcher.observe(document.querySelector('.gallery-item:last-child'));
     } else {
       Notify.info('Sorry, there are no images matching your search query. Please try again.');
